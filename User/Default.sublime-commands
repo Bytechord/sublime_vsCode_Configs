@@ -1,3 +1,5 @@
 [
-	{"caption":":q -Close file","command":"close_file"}
+	{"caption":":q -Close file","command":"close_file"},
+	{"caption":":Explore - Reveal in file explorer", "command":"reveal_in_side_bar"},
+	{"caption":":exit -close window", "command": "close_window"}
 ]
