@@ -1,0 +1,4 @@
+Extensions
+
+Material Icon Theme
+Vim
