@@ -1,91 +1,124 @@
 {
-    "editor.suggestSelection": "first",
-    "editor.fontSize": 16,
-    "terminal.integrated.fontFamily": "MesloLGL Nerd Font",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
+  "editor.suggestSelection": "first",
+  "editor.fontSize": 16,
+  "terminal.integrated.fontFamily": "MesloLGL Nerd Font",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.lineNumbers": "relative",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.visualModeKeyBindings": [
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    // Paste vithout overwriting register
+    { "before": ["p"], "after": ["p", "g", "v", "y"] }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["leader", "s", "h"], "commands": [":split"] },
+    { "before": ["leader", "s", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s", "x"], "commands": [":close!"] },
+
+    { "before": ["<C-j>"], "commands": ["workbench.action.focusBelowGroup"] },
+    { "before": ["<C-k>"], "commands": ["workbench.action.focusAboveGroup"] },
+    { "before": ["<C-h>"], "commands": ["workbench.action.focusLeftGroup"] },
+    { "before": ["<C-l>"], "commands": ["workbench.action.focusRightGroup"] },
+
+    { "before": ["leader", "t", "n"], "commands": [":bnext"] },
+    { "before": ["leader", "t", "p"], "commands": [":bprevious"] },
+    {
+      "before": ["leader", "t", "o"],
+      "commands": ["workbench.action.files.newUntitledFile"]
     },
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.lineNumbers": "relative",
-    "vim.easymotion": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before":["j","j"],
-            "after":["<Esc>"]
-        }
-    ], 
-    "vim.leader": "<space>",
-    "vim.visualModeKeyBindings": [
-        { "before": [">"], "commands": ["editor.action.indentLines"] },
-        { "before": ["<"], "commands": ["editor.action.outdentLines"] },
-        { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
-        { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    { "before": ["leader", "t", "x"], "commands": [":tabclose"] },
 
-        // Paste vithout overwriting register
-        { "before": ["p",], "after": ["p","g","v","y"] }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        { "before":["leader","s","h"], "commands":[":split"]},
-        { "before":["leader","s","v"], "commands":[":vsplit"]},
-        { "before":["leader","s","x"], "commands":[":close!"]},
+    { "before": ["leader", "n", "h"], "commands": [":nohl"] },
 
-        { "before":["<C-j>"], "commands":["workbench.action.focusBelowGroup"]},
-        { "before":["<C-k>"], "commands":["workbench.action.focusAboveGroup"]},
-        { "before":["<C-h>"], "commands":["workbench.action.focusLeftGroup"]},
-        { "before":["<C-l>"], "commands":["workbench.action.focusRightGroup"]},
+    { "before": ["K"], "commands": ["editor.action.revealDefinition"] },
+    { "before": ["leader", "K"], "commands": ["editor.action.peekDefinition"] },
 
-        { "before":["leader","t","n"], "commands":[":bnext"]},
-        { "before":["leader","t","p"], "commands":[":bprevious"]},
-        { "before":["leader","t","o"], "commands":["workbench.action.files.newUntitledFile"]},
-        { "before":["leader","t","x"], "commands":[":tabclose"]},
+    //Explorer
+    {
+      "before": ["leader", "e", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["leader", "e", "F"],
+      "commands": ["workbench.files.action.showActiveFileInExplorer"]
+    },
+    { "before": ["leader", "e", "f"], "commands": [":Explore"] },
+    {
+      "before": ["leader", "e", "c"],
+      "commands": ["workbench.files.action.collapseExplorerFolders"]
+    },
+    {
+      "before": ["leader", "e", "r"],
+      "commands": ["workbench.files.action.refreshFilesExplorer"]
+    },
+    //go to file
+    {
+      "before": ["leader", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    //Maximize/minimize current tab
+    {
+      "before": ["leader", "m"],
+      "commands": ["workbench.action.toggleMaximizeEditorGroup"]
+    },
+    //Terminal
+    {
+      "before": ["leader", "x","o"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["leader", "x","x"],
+      "commands": ["workbench.action.togglePanel"]
+    }
 
-        { "before":["leader","n","h"], "commands":[":nohl"]},
 
-        { "before":["K"], "commands":["editor.action.revealDefinition"]},
-        { "before":["leader","K"], "commands":["editor.action.peekDefinition"]},
-        
-        //Explorer
-        { "before":["leader","e","e"], "commands":["workbench.action.toggleSidebarVisibility"]},
-        { "before":["leader","e","F"], "commands":["workbench.files.action.showActiveFileInExplorer"]},
-        { "before":["leader","e","f"], "commands":[":Explore"]},
-        { "before":["leader","e","c"], "commands":["workbench.files.action.collapseExplorerFolders"]},
-        { "before":["leader","e","r"], "commands":["workbench.files.action.refreshFilesExplorer"]},
-        //go to file
-        { "before":["leader","f","f"], "commands":["workbench.action.quickOpen"]},
-        
-    ], 
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors.normal": ["#8FBCBB", "#000"],
-    "vim.statusBarColors.insert": ["#BF616A", "#000"],
-    "vim.statusBarColors.visual": ["#B48EAD", "#000"],
-    "vim.statusBarColors.visualline": ["#B48EAD", "#000"],
-    "vim.statusBarColors.visualblock": ["#A3BE8C", "#000"],
-    "vim.statusBarColors.replace": "#D08770",
-    "vim.statusBarColors.commandlineinprogress": "#007ACC",
-    "vim.statusBarColors.searchinprogressmode": "#007ACC",
-    "vim.statusBarColors.easymotionmode": "#007ACC",
-    "vim.statusBarColors.easymotioninputmode": "#007ACC",
-    "vim.statusBarColors.surroundinputmode": "#007ACC",
+  ],
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#8FBCBB", "#000"],
+  "vim.statusBarColors.insert": ["#BF616A", "#000"],
+  "vim.statusBarColors.visual": ["#B48EAD", "#000"],
+  "vim.statusBarColors.visualline": ["#B48EAD", "#000"],
+  "vim.statusBarColors.visualblock": ["#A3BE8C", "#000"],
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
 
   "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.background": "#007ACC",
+    "statusBar.noFolderBackground": "#007ACC",
+    "statusBar.debuggingBackground": "#007ACC",
     "statusBar.foreground": "#000",
     "statusBar.debuggingForeground": "#000",
     "editor.lineHighlightBackground": "#333"
-},
-    "workbench.colorTheme": "Default Dark+",
-    "workbench.iconTheme": "material-icon-theme",
-    "dotnet.highlighting.highlightRelatedJsonComponents": true,
-    "editor.occurrencesHighlight": "off",
-    "editor.selectionHighlight": false,
-    "editor.fontFamily": "MesloLGL Nerd Font",
- 
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.occurrencesHighlight": "off",
+  "editor.selectionHighlight": false,
+  "editor.fontFamily": "MesloLGL Nerd Font",
+  "telemetry.feedback.enabled": false,
+  "telemetry.telemetryLevel": "off"
 }
